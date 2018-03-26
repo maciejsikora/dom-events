@@ -86,6 +86,19 @@
   .hight {
     height: 200px;
   }
+
+  .message {
+    padding: 2px;
+    margin: 0px;
+  }
+
+  #chat {
+    overflow-y: scroll;
+  }
+
+  .rightSide {
+    text-align: right;
+  }
   </style>
   <script src='./playground.js' ></script>
 </head>
@@ -245,9 +258,21 @@
       <button class='sm-item bg-button'>12</button>
       <button class='sm-item bg-button'>13</button>
     </div>
+    <div>
+      <label>
+        Username:
+        <input name='username'/>
+        <input type="radio" name='username-check' value='1'/>
+      </label>
+      <label>
+        Username 2:
+        <input name='username2'/>
+        <input type="radio" name='username-check' value='2'/>
+      </label>
+    </div>
     <div class='huge-item content hight'>
       <textarea  class='md-item'></textarea>
-      <div class='md-item bordered'></div>
+      <div id="chat" class='md-item bordered'></div>
     </div>
   </div>
 </body>

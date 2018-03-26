@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   console.log("DOM fully loaded. Ready to go!");
   // b3();
   b1();
+  b6();
 });
 // B.1 - Za każdym kliknięciem na dowolny przycisk dopisz do diva clicked-info data-id kliknietego przycisku.
 
@@ -42,4 +43,18 @@ const b3 = () => {
 // B.4 - po kliknieciu w przycisk o id = add dodac nowy div z tekstem wpisanym w input
 // B.5 - rozszerzenie B.4 - czysicic inputa po kazdym przycisnieciu przycisku
 // B.6 - po kliknieciu w dowolny przycisk A, B, C ma pojawic sie nowy przycisk i ma rowniez obslugiwac kliniecia
+const b6 = () => {
+  const body = document.querySelector('body');
+  body.addEventListener('click', (e) => {
+    console.log(e.target.tagName);
+    if (e.target.tagName.toLowerCase() === 'button' && e.target.hasAttribute('data-id')) {
+      //const newButton = e.target.cloneNode(true);
+      const newButton = document.createElement('button');
+      newButton.dataset.id = e.target.dataset.id;
+      newButton.innerText = e.target.innerText;
+      
+      body.appendChild(newButton);
+    }
+  });
+}
 // np. klikamy w przycisk C - pojawia sie nowy przycisk C, po kliknieciu w niego znowu pojawia sie przycisk C

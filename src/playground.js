@@ -9,11 +9,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
   //setClickOnButtonInOrange();
   //setClickOnButtonInOrangeBubbling();
   //setClickOnButtonInOrangeBubblingBody();
-  changeColorAfterButtonClick();
-  orangeDivListener();
-  mouseHandlers();
-  scrollEvent();
-  formChangeEvents();
+  // changeColorAfterButtonClick();
+  // orangeDivListener();
+  // mouseHandlers();
+  // scrollEvent();
+  // formChangeEvents();
+  textarea();
 });
 
 // FUNCKJE DOTYCZACE CZASU
@@ -152,4 +153,25 @@ const formChangeEvents = () => {
   });
 }
 
+const textarea = () => {
+  const ta = document.querySelector('textarea');
+  const chat = ta.nextElementSibling;
+  const userNameInput = document.querySelector('input[name="username"]');
+  const user2NameInput = document.querySelector('input[name="username2"]');
+  const radio = document.querySelector('input[name="username-check"]');
+  ta.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
 
+      const message = document.createElement('p');
+      console.log(radio.value);
+      const userName = radio.value === '1' ? userNameInput.value : user2NameInput.value;
+
+      message.innerHTML = '<b>' + userName + '</b>: ' + ta.value.trim();
+      message.className = 'message rightSide';
+      chat.appendChild(message);
+      chat.scrollTo(0, Number.MAX_SAFE_INTEGER);
+      ta.value = ''; //clear value
+      e.preventDefault();
+    }
+  });
+}

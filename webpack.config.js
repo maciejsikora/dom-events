@@ -6,7 +6,8 @@ module.exports = {
     b: './src/b.js',
     c: './src/c.js',
     d: './src/d.js',
-    playground: './src/playground.js'
+    playground: './src/playground.js',
+    storage: './src/storage.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
